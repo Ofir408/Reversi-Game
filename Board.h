@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include "Cell.h"
-#include "vector"
 
 using namespace std;
 
@@ -137,7 +136,7 @@ public:
 	 * Cell cell - the cell that we want to check if it's empty.
 	 * check if cell is empty, if yes returns true. Otherwise false.
 	 */
-	bool isCellEmpty(Cell cell);
+	bool isCellEmpty(Cell cell) const;
 
 	/**
 	 * Gets:
@@ -154,62 +153,6 @@ public:
 	 * Otherwise returns false.
 	 */
 	bool isBoardFull();
-
-	/**
-	 * Gets:
-	 * char playerToCheck - the player that we want to check how much cells
-	 * he has on the board.
-	 * For example, if gets x counting how much sings at the board have the
-	 * sign x.
-	 * Returns an integer number that represents the number of cells the input
-	 * player has on the board.
-	 *
-	 */
-	int howMuchCells(char playerToCheck);
-
-	/**
-	 * copy constructor for board, in order do not change him
-	 * while we check the mini-max algorithem.
-	 */
-	Board copyConstructor(Board toCopy);
-
-	/**
-	 * returns vector of cells that each one represents an empty cell that
-	 * the current player can assign his sign there.
-	 * each cell from the return vector is from (1..8, 1..8)
-	 * Because we want to print the possible moves
-	 * to the current player according how the board is printed and not from (0..7) as the array works.
-	 *
-	 */
-	vector<Cell> possibleCellsToAssign(char player);
-
-	/**
-	 * print possible moves for playing for the input player char,
-	 * which is X or 0.
-	 */
-	void printPossibleCells(char player);
-
-	/**
-	 * char player -> X\O, the sign of the current player.
-	 * Cell input  -> the input that the player wrote,
-	 * here we assume that his choose
-	 * is valid.
-	 */
-	void inputAssignManager(char player, Cell input);
-
-	/**
-	 * This method checks if the input player can to assign the input cell
-	 * in our board.
-	 * if it's possible return true. Otherwise -> false.
-	 * Cell cellToCheck borders are from: (0..7, 0..7) after the constructor.
-	 */
-	bool canAssign(char player, Cell cellToCheck);
-
-	/**
-     * return true if there are avilable steps and false if there aren't.
-	 * c is the player to check
-	 */
-	bool canContinue(char c);
 
 private:
 	// array that represents our board.
@@ -234,8 +177,6 @@ private:
 	 * ensure that all the values in our board initilized to space.
 	 */
 	void confirmInitialize();
-
-
 
 };
 
